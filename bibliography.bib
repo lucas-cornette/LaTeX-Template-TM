@@ -1,0 +1,173 @@
+%Notes
+%
+%Online source:
+%Required fields: author/editor, title, year/date, doi/eprint/url
+%Omissible: author, editor and year
+%Optional fields: subtitle, titleaddon, language, version, note, organization, month, addendum, pubstate, eprintclass, eprinttype, urldate
+%
+%@online{full-example,
+%	author = {},
+%	title = {},
+%	date = {},
+%	url = {},
+%	urldate = {},
+%}
+%@online{minimal-example,
+%	title = {},
+%	date = {},
+%	url = {},
+%	urldate = {},
+%}
+%
+%Inreference/incollection:
+%Required fields: author, title, editor, booktitle, year/date
+%Optional fields: editor, editora, editorb, editorc, translator, annotator, commentator, introduction, foreword, afterword, subtitle, titleaddon, maintitle, mainsubtitle, maintitleaddon, booksubtitle, booktitleaddon, language, origlanguage, volume, part, edition, volumes, series, number, note, publisher, location, isbn, eid, chapter, pages, addendum, pubstate, doi, eprint, eprintclass, eprinttype, url, urldate
+%
+%manual:
+%Technical or other documentation, not necessarily in printed form. The author or editor is omissible in terms of § 2.3.2.
+%Required fields: author/editor, title, year/date
+%Optional fields: subtitle, titleaddon, language, edition, type, series, number, version, note, organization, publisher, location, isbn, eid, chapter, pages, pagetotal, addendum, pubstate, doi, eprint, eprintclass, eprinttype, url, urldate
+%
+%Book:
+%@book{automating-devops,
+%	author = {},
+%	title = {},
+%	date = {},
+%	publisher = {},
+%	address = {},
+%	isbn = {},
+%}
+%
+%report: 
+%A technical report, research report, or white paper published by a university or some other institution. Use the type field to specify the type of report. The sponsoringinstitution goes in the institution field.
+%Required fields: author, title, type, institution, year/date
+%Optional fields: subtitle, titleaddon, language, number, version,note, location, month, isrn, eid, chapter, pages, pagetotal, addendum, pubstate, doi, eprint, eprintclass, eprinttype, url, urldate
+%
+%article: 
+%An article in a journal, magazine, newspaper, or other periodical which forms a self-contained unit with its own title. The title of the periodical is given in thejournaltitle field. If the issue has its own title in addition to the main title of the periodical, it goes in the issuetitle field. Note that editor and relatedfields refer to the journal while translator and related fields refer to the article.
+%Required fields: author, title, journaltitle, year/date
+%Optional fields: translator, annotator, commentator, subtitle,titleaddon, editor, editora, editorb, editorc, journalsubtitle,journaltitleaddon, issuetitle, issuesubtitle,issuetitleaddon, language, origlanguage, series, volume,number, eid, issue, month, pages, version, note, issn, addendum,pubstate, doi, eprint, eprintclass, eprinttype, url, urldate
+%
+%https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management#BibTeX
+%https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/index.html
+%https://www.scribbr.com/citation/generator/
+%
+%biplatex.pdf: entry types p9-15, data fields p18-28, commands p109
+%Commands:
+%\textcite{}
+%\cite{}
+%\citetitle{}
+%\citeyear{}
+%
+%Errors => *.blg = log file
+%Escape & signs (\&)
+%If errors keep happening after solving error clean auxiliary files => Tools -> Clean Auxiliary Files
+
+%EXAMPLES:
+%@book{automating-devops,
+%	author    = {Christopher Cowell and Nicholas Lotz and Chris Timberlake},
+%	title     = {Automating DevOps with GitLab CI/CD Pipelines},
+%	year      = {2023},
+%	publisher = {Packt Publishing Ltd.},
+%	address   = {Birmingham, UK},
+%	isbn      = {978-1-80323-300-0},
+%}
+%
+%@manual{gitlab-installation,
+%	title        = {Installation methods},
+%	organization = {GitLab},
+%	url          = {https://docs.gitlab.com/ee/install/install_methods.html},
+%	version      = {16.1},
+%	urldate      = {2023-05-24},
+%}
+%
+%Stackoverflow:
+%@online{powershell-answer,
+%	title        = {gitlab-runner: prepare environment failed to start process pwsh in windows},
+%	author       = {Harish},
+%	organization = {Stack Overflow},
+%	date         = {2021-06-19},
+%	url          = {https://stackoverflow.com/a/68050126},
+%}
+%
+%@online{compiling-behind-scenes,
+%	title        = {Compiling a C Program: Behind the Scenes},
+%	organization = {GeeksforGeeks},
+%	date         = {2023-04-14},
+%	url          = {https://www.geeksforgeeks.org/compiling-a-c-program-behind-the-scenes/},
+%	urldate      = {2023-05-25},
+%}
+%
+%Wikipedia: (make sure to copy link corresponding to the version of the article that was used)
+%@inreference{low-level,
+%	title     = {Low-level programming language},
+%	booktitle = {Wikipedia},
+%	date      = {2023-05-02},
+%	url       = {https://en.wikipedia.org/w/index.php?title=Low-level_programming_language&oldid=1152848044},
+%}
+%
+%@online{linpeas,
+%	title   = {LinPEAS},
+%	author  = {Carlos Polop},
+%	date    = {2019},
+%	url     = {https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS},
+%	urldate = {2023-05-25},
+%	note    = {Software},
+%}
+%
+%@report{dfir,
+%	title       = {Data Breach Investigations Report},
+%	author      = {Gabriel Bassett and C. David Hylender and Philippe Langlois and Alex Pinto and Suzanne Widup},
+%	institution = {Verizon},
+%	type        = {report},
+%	year        = {2022},
+%	url         = {https://www.verizon.com/business/resources/reports/dbir/2022-data-breach-investigations-report-dbir.pdf},
+%}
+%
+%@article{antwerp-vrt,
+%	title        = {Hackerscollectief Play verantwoordelijk voor cyberaanval op stad Antwerpen, groep dreigt om privégegevens publiek te maken},
+%	journaltitle = {VRT NWS},
+%	author       = {Nils Schillewaert},
+%	date         = {2022-12-12},
+%	url          = {https://www.vrt.be/vrtnws/nl/2022/12/12/hacking-antwerpen/},
+%}
+
+@article{einstein,
+    author = "Albert Einstein",
+    title = "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
+    [{On} the electrodynamics of moving bodies]",
+    journal = "Annalen der Physik",
+    volume = "322",
+    number = "10",
+    pages = "891--921",
+    year = "1905",
+    DOI = "http://dx.doi.org/10.1002/andp.19053221004",
+    keywords = "physics"
+}
+
+@book{dirac,
+    title = {The Principles of Quantum Mechanics},
+    author = {Paul Adrien Maurice Dirac},
+    isbn = {9780198520115},
+    series = {International series of monographs on physics},
+    year = {1981},
+    publisher = {Clarendon Press},
+    keywords = {physics}
+}
+
+@online{knuthwebsite,
+    author = "Donald Knuth",
+    title = "Knuth: Computers and Typesetting",
+    url  = "http://www-cs-faculty.stanford.edu/~uno/abcde.html",
+    addendum = "(accessed: 01.09.2016)",
+    keywords = "latex,knuth"
+}
+
+@inbook{knuth-fa,
+    author = "Donald E. Knuth",
+    title = "Fundamental Algorithms",
+    publisher = "Addison-Wesley",
+    year = "1973",
+    chapter = "1.2",
+    keywords  = "knuth,programming"
+}

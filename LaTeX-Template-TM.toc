@@ -1,0 +1,31 @@
+\babel@toc {american}{}\relax 
+\contentsline {chapter}{Voorwoord}{1}{chapter*.1}%
+\contentsline {chapter}{Samenvatting}{2}{chapter*.2}%
+\contentsline {chapter}{Inhoudstafel}{3}{chapter*.2}%
+\thispagestyle {empty}
+\contentsline {chapter}{Lijst van afbeeldingen}{4}{chapter*.4}%
+\contentsline {chapter}{Lijst van tabellen}{5}{chapter*.5}%
+\contentsline {chapter}{Lijst van code}{6}{chapter*.6}%
+\contentsline {chapter}{Lijst van afkortingen en symbolen}{7}{chapter*.7}%
+\contentsline {chapter}{Inleiding}{8}{chapter*.8}%
+\contentsline {chapter}{1 Hoofdstuk 1}{9}{chapter*.9}%
+\contentsline {section}{\numberline {1.1}Section 1}{10}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Subsection 1}{10}{subsection.1.1.1}%
+\contentsline {subsubsection}{Subsubsection 1}{10}{section*.10}%
+\contentsline {paragraph}{Paragraph 1}{10}{section*.11}%
+\contentsline {subparagraph}{Subparagraph 1}{10}{section*.12}%
+\contentsline {chapter}{2 Hoofdstuk 2}{11}{chapter*.13}%
+\contentsline {section}{\numberline {2.1}Afbeelding}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Float Specifiers}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Lijst}{11}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Unordered}{11}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Ordered}{12}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Text}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Andere}{13}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}3 Afbeeldingen naast elkaar}{13}{subsection.2.5.1}%
+\contentsline {subsubsection}{Code Listings}{13}{section*.16}%
+\contentsline {subsection}{\numberline {2.5.2}Citing \& Referencing}{13}{subsection.2.5.2}%
+\contentsline {subsubsection}{Citing}{13}{section*.17}%
+\contentsline {subsubsection}{Referencing}{14}{section*.18}%
+\contentsline {chapter}{Literatuurlijst}{16}{chapter*.20}%
+\contentsline {chapter}{Bijlagen}{17}{chapter*.21}%

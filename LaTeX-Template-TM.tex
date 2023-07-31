@@ -1,0 +1,355 @@
+%LaTeX Template for Thomas More Following 2022-2023 Guidelines
+%Lucas Cornette
+
+%Written using TeXstudio & TeX Live
+%Using the LuaLaTex compiler & the biber bibliography tool
+%!Make sure to set these under Options => Configure TeXStudio, or this document won't properly compile!
+
+%See the included documentation for each package used in this template
+%You can find a comprehensive guide to LaTeX in TeXstudio under Help => LaTeX Reference (or https://latexref.xyz/index.html)
+%You can find a guide to TeXstudio under Help => User Manual
+%Additional documentation: https://www.overleaf.com/learn and https://tex.stackexchange.com
+%For more information on packages see https://www.ctan.org/
+
+%This template is made to adhere to the regulations and guidelines of 2022-2023
+
+%To edit the bibliography edit the bibliography database file which is called bibliography.bib
+%To generate TOC correctly, always compile document twice
+
+%Use CTRL + Click:
+%	- in the editor to go to the corresponding part in the PDF viewer;
+%	- in the PDF viewer to go to the corresponding part in the editor.
+%
+%CTRL + t to (un)comment
+
+%Use the log to check for warnings & errors (eg. overfull hboxes => element is too big and overflows into the margin)
+
+
+\documentclass[a4paper, 11pt]{report}
+
+%PACKAGES
+\usepackage{pdfpages} %Use pdf document as titlepage
+\usepackage[T1]{fontenc} %Set encoding to TeX text extended, gives access to most European accented characters
+\usepackage{microtype} %Enhance appearance and readablility, requires PdfLaTex for maximum support but LuaLaTex also supports what we need (protrusion & expansion)
+\usepackage{fontspec} %Font selection, requires LuaLaTex as compiler (or XeLaTex)
+\usepackage{setspace} %Font spacing
+\usepackage{geometry} %Page dimensions
+\usepackage{fancyhdr} %Page numbering
+\usepackage{parskip}  %Line breaks between paragraphs instead of indentation, breaks indentation of subparagraphs
+\usepackage{listings} %Code formatting
+\usepackage{float}    %Floating environments (H float specifier)
+\usepackage{graphicx} %Images
+\graphicspath{ {./images/} } %Place images in this folder
+\usepackage[hidelinks]{hyperref} %Make links clickable, such as the toc
+\hypersetup{
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	pdfinfo={
+		Title={TITLE},
+		Subject={SUBJECT},
+		Author={AUTHOR},
+	} %Sets PDF metadata
+}
+\usepackage{cleveref} %Load cleveref after hyperref
+\usepackage{caption}  %Extra options for captions
+\usepackage{subcaption} %Subcaptions fo figures
+\usepackage{longtable} %Table spanning multiple pages
+\usepackage{booktabs}  %Table layout
+\usepackage{csquotes} %Dependency of biblatex
+\usepackage[american]{babel} %Recommended for biblatex-apa (to enforce APA required American punctuation)
+\usepackage[style=apa,natbib=true]{biblatex} %Bibliography, using apa style. Example references => biblatex-apa-test.pdf & biblatex-apa-test-references.bib
+\usepackage{xpatch} %Force apa-style bibliography to print isbn number
+\xpretobibmacro{doi+url}{\printfield{isbn}}{}{}
+\usepackage{lipsum} %Generate lorem ipsum text
+
+
+%LAYOUT & SETTING DOCUMENT
+%Font
+\setmainfont{Arial}
+\setsansfont{Arial}
+%\setmonofont{Arial}
+\setstretch{1.15} %Interline
+
+%Layout
+\geometry{inner=30mm, outer=20mm, top=20mm, bottom=20mm} %Margins
+
+\pagestyle{empty} %Use empty page style until introduction
+\fancyhf{} %Clear headers & footers
+\fancyhead[R]{\thepage} %Set pagenumber in header on the right
+\renewcommand{\headrulewidth}{0pt} %Set line width to 0 to remove line
+\setlength{\headheight}{13.59999pt} %Solves warning of headheight being too small
+
+\fancypagestyle{plain}{ %Redefine the plain page style to be the same as fancy (plain page style used by chapter command)
+	\fancyhf{}
+	\fancyhead[R]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+%See https://tex.stackexchange.com/questions/82993/how-to-change-the-name-of-document-elements-like-figure-contents-bibliogr
+\addto\captionsamerican{ 
+	\renewcommand{\contentsname}{Contents} %Rename toc
+}
+\addbibresource{bibliography.bib} %Add bibliography database
+\DefineBibliographyStrings{american}{%
+	bibliography = {Literatuurlijst},
+	references = {References},
+}
+
+\renewcommand{\lstlistlistingname}{List of Listings}
+%\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % Add ... in toc for chapters
+
+
+%Not used as titlepage is a premade PDF:
+%\title{TITLE}
+%\date{DATE}
+%\author{AUTHOR}
+
+
+\begin{document}
+
+
+\begin{titlepage}
+	\includepdf[pages=-]{"files/titlepage.pdf"}
+\end{titlepage}
+
+
+\chapter*{Voorwoord}
+\addcontentsline{toc}{chapter}{Voorwoord}
+\thispagestyle{empty}
+
+Maximum één pagina
+\\ "Het voorwoord staat in zekere zin los van de scriptie: het heeft geen belang voor de inhoud van de scriptie. Het woord vooraf gebruik je om persoonlijke omstandigheden / ervaringen te benoemen en die tot deze scriptie hebben geleid, je kan een dankwoord richten aan al de personen en organisaties die mee helpen geholpen bij het tot stand brengen van de scriptie. Als je een persoon of bedrijf bij naam wilt noemen, zorg er dan voor dat je daartoe toestemming hebt (zorg ook dat ze weten dat deze scriptie online raadpleegbaar wordt).
+Ook andere zaken die je wilt vermelden maar die niet rechtstreeks met het onderwerp verband houden, horen thuis in het voorwoord." (Bosmans, N., Bryon, E., \& Mertens, E., 2021, p 17-18)
+
+
+\chapter*{Samenvatting}
+\addcontentsline{toc}{chapter}{Samenvatting}
+\thispagestyle{empty}
+
+Maximum één pagina
+\\ “De samenvatting geeft de inhoud van de volledige tekst in maximaal 200 à 250 woorden weer. Het is vooral bedoeld voor de lezers die de tekst niet in zijn geheel wil lezen, of die de tekst nog eens in grote lijnen wenst te overzien. Een goede samenvatting beschrijft dus niet de structuur van jouw scriptie en is dus geen opsomming van de hoofdstukken. Wel geeft de samenvatting overzichtelijk de essentie van het werkstuk weer.
+Een goede samenvatting bestaat uit drie delen:
+\\ • In een inleidende alinea schets je kort de context van waaruit je vertrekt. Je formuleert de precieze probleemstelling en je legt uit wat je wilde bereiken met je onderzoek. Je verklaart ook waarom de probleemstelling relevant is.
+\\ • Daarna bespreek je de methode die je gebruikte en de resultaten. Als je zelf onderzoek hebt gedaan, geef je aan op welke principes dat onderzoek gebaseerd is.
+\\ • Tenslotte beschrijf je de belangrijkste informatie die het onderzoek opgeleverd heeft: in een besluit formuleer je de conclusies die je uit de gevonden informatie kan trekken.”
+(Bosmans, N., Bryon, E., \& Mertens, E., 2021, p 18).
+
+
+%Table of Contents
+\newpage
+\addcontentsline{toc}{chapter}{Inhoudstafel}
+\tableofcontents %To generate TOC correctly, always compile document twice
+\addtocontents{toc}{\protect\thispagestyle{empty}} %Remove page number from contents when longer than 1 page
+\thispagestyle{empty}
+
+
+%List of Figures
+\listoffigures
+\addcontentsline{toc}{chapter}{Lijst van afbeeldingen}
+\thispagestyle{empty}
+
+
+%List of Tables
+\listoftables
+\addcontentsline{toc}{chapter}{Lijst van tabellen}
+\thispagestyle{empty}
+
+
+%List of Listings
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Lijst van code}
+\thispagestyle{empty}
+
+
+\chapter*{Lijst van afkortingen en symbolen}
+\addcontentsline{toc}{chapter}{Lijst van afkortingen en symbolen}
+\thispagestyle{empty}
+
+\renewcommand*{\arraystretch}{1.4}
+\begin{longtable}{ll} %This table can stretch multiple pages
+	%Header
+	\toprule
+	Afkorting & Betekenis \\
+	\midrule
+	\endhead
+	
+	%Footer
+	\bottomrule
+	\caption{Lijst van afkortingen}
+	\endfoot
+	
+	%Last footer
+	\bottomrule
+	\caption{Lijst van afkortingen} %(verv.)}
+	\endlastfoot
+	
+	%Middle
+	AK1 & Afkorting 1 \\
+	AK2 & Afkorting 2 \\
+	AK3 & Afkorting 3 \\
+	AK4 & Afkorting 4 \\
+\end{longtable}
+
+\chapter*{Inleiding} %Start page numbering
+\addcontentsline{toc}{chapter}{Inleiding}
+\pagestyle{fancy}
+\lipsum[1-3]
+
+\chapter*{1 Hoofdstuk 1}
+\addcontentsline{toc}{chapter}{1 Hoofdstuk 1}
+\setcounter{chapter}{1}
+\lipsum[1-5]
+\section{Section 1}
+\lipsum[1]
+\subsection{Subsection 1}
+\lipsum[2]
+\subsubsection{Subsubsection 1}
+\lipsum[3]
+\paragraph{Paragraph 1}
+\lipsum[4]
+
+\setlength\parindent{24pt} %Mimick default LaTeX behaviour of a subparagraph, otherwise it has the same layout of a paragraph
+\subparagraph{Subparagraph 1}
+Paragraaf 1 \\
+\noindent Paragraaf 2 \\
+\noindent Paragraaf 3
+\setlength\parindent{0pt}
+
+
+\chapter*{2 LaTeX Opmaak}
+\addcontentsline{toc}{chapter}{2 Hoofdstuk 2}
+\setcounter{chapter}{2}
+\setcounter{section}{0}
+\lipsum[1][1-5]
+
+\section{Afbeelding}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{tm-vb}
+	\caption{Voorbeeld van een afbeelding}
+	\label{fig:voorbeeld-afbeelding}
+\end{figure}
+
+\section{Float Specifiers}
+Float specifiers that can be used to place an image or table. See table \ref{float-specifiers} on page \pageref{float-specifiers}. Table specifiers: l = left, c = center, r = right.
+\begin{table}[hb]
+	\caption{Float specifiers}
+	\centering
+	\begin{tabular}{cl}
+		\toprule
+		Function & Type \\
+		\midrule
+		h & Place the float here, i.e., approximately at the same point it occurs in the source \\ & text (however, not exactly at the spot)  \\
+		t & Position at the top of the page. \\
+		b & Position at the bottom of the page. \\
+		p & Put on a special page for floats only. \\
+		! & Override internal parameters LaTeX uses for determining "good" float positions. \\
+		H & Places the float at precisely the location in the LaTeX code. Requires the float \\ & package, i.e., \verb|\usepackage{float}|. \\
+		\bottomrule
+	\end{tabular}
+	%\caption{Float specifiers}
+	\label{float-specifiers}
+\end{table}
+
+\section{Lijst}
+\subsection{Unordered}
+\begin{itemize}
+	%\setstretch{0.5}
+	\item item 1;
+	\item item 2;
+	\item item 3.
+\end{itemize}
+\subsection{Ordered}
+\begin{enumerate}
+	%\setstretch{0.5}
+	\item item 1;
+	\item item 2;
+	\item item 3.
+\end{enumerate}
+
+\section{Text}
+Escape special characters: \&. \textbf{Boldface,} \textit{italic,} \underline{underline.}
+
+\verb|inline verbatim text, including special chars (&)| or \texttt{just typewriter font, \\ excluding special chars (escape \& using \textbackslash)}
+
+\begin{verbatim}
+	Verbatim environment
+\end{verbatim}
+
+\LaTeX{}
+
+\newpage
+
+\section{Andere}
+
+\subsection{3 Afbeeldingen naast elkaar}
+=> height aanpassen/weglaten naargelang afbeelding
+\begin{lstlisting}[frame=single,numbers=left,basicstyle=\ttfamily,caption={3 afbeeldingen},label=multi-img]
+\begin{figure}[H]
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[height=8cm]{repo-structure-1}
+		\caption{C2 Tool Collection}
+		\label{fig:repo-structure-1}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[height=9cm]{repo-structure-2}
+		\caption{CS Situational Awareness BOF}
+		\label{fig:repo-structure-2}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+		\centering
+		\includegraphics[height=9cm]{repo-structure-3}
+		\caption{CS Remote OPs BOF}
+		\label{fig:repo-structure-3}
+	\end{subfigure}
+	\caption{Difference in repository structure}
+	\label{fig:repo-structure}
+\end{figure}
+\end{lstlisting}
+
+\subsubsection{Code Listings}
+\begin{lstlisting}[frame=single,basicstyle=\ttfamily,caption={Code from file},breaklines=true]
+\lstinputlisting[frame=single,numbers=left,commentstyle=\ttfamily,showstringspaces=false,caption={CAPTION},label=LABEL,breaklines=true,linerange={9-10,12-18,19-19},consecutivenumbers=false,language=LANGUAGE,tabsize=2]{files/FILE.EXT}
+\end{lstlisting}
+
+\subsection{Citing \& Referencing}
+\subsubsection{Citing}
+Using the bibliography.bib file. Add entries for each source, see notes in file.
+\begin{verbatim}
+	\cite{REF}
+	\parencite{REF}
+	\textcite{REF}
+	\citetitle{REF}
+	\citeyear{REF}
+\end{verbatim}
+\subsubsection{Referencing}
+Using labels given to tables, figures, chapters, equations, ...
+\begin{verbatim}
+	\ref{LABEL}
+	\pageref{LABEL}
+\end{verbatim}
+It is possible to prepend the label to describe what is being referenced eg. for figures one can use \verb|\label{fig:vb-afb}|.
+
+\chapter*{Besluit} %Using references from the bibliography database
+Let's cite! Einstein's 
+journal paper \cite{einstein} and Dirac's book \cite{dirac} are 
+physics-related items. Next, \textit{The \LaTeX\ Companion} book, Donald Knuth's website \cite{knuthwebsite},
+\textit{The Comprehensive Tex Archive Network} (CTAN) are \LaTeX-related items; but the others, Donald Knuth's items, 
+\cite{knuth-fa} are dedicated to programming. 
+
+%\chapter*{Literatuurlijst}
+\printbibliography
+\addcontentsline{toc}{chapter}{Literatuurlijst}
+
+\chapter*{Bijlagen}
+\addcontentsline{toc}{chapter}{Bijlagen}
+
+\begin{lstlisting}[frame=single,basicstyle=\ttfamily,breaklines=true]
+\lstinputlisting[frame=single,numbers=left,basicstyle=\ttfamily,label=LABEL,nolol=true,breaklines=true,tabsize=2]{files/FILE.txt}
+	
+\lstinputlisting[frame=single,numbers=left,commentstyle=\ttfamily,showstringspaces=false,label=LABEL,nolol=true,breaklines=true,language=bash,deletekeywords={env},tabsize=2]{files/FILE.sh}
+\end{lstlisting}
+
+
+\end{document}
